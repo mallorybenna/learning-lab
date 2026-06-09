@@ -1,0 +1,10 @@
+{
+  "name": "learning-lab",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A landing ground for little learning-by-building projects.",
+  "scripts": {
+    "build-readme": "node scripts/build-readme.mjs"
+  }
+}

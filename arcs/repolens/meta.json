@@ -1,0 +1,11 @@
+{
+  "season": 1,
+  "arc": 1,
+  "theme": "AI-augmented dev tooling",
+  "title": "RepoLens — AI-annotated dependency-graph explorer",
+  "rooted": "work",
+  "problem": "Understanding a large TS/Nx monorepo's structure is slow and tribal — visualize it and let Claude explain it.",
+  "status": "in-progress",
+  "demo": "",
+  "skills": ["data modeling", "dataviz", "Claude API", "graph analysis"]
+}

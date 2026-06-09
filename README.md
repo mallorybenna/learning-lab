@@ -11,5 +11,5 @@ Guided projects live in [`arcs/<name>/`](arcs/) with their code, an `architectur
 <!-- ARCS:START -->
 | # | Theme | Project | Rooted in | Status | Demo |
 |---|-------|---------|-----------|--------|------|
-| — | — | _No arcs yet — your first lands after Step 1 in #mallory-learning._ | — | — | — |
+| S1·A1 | AI-augmented dev tooling | [RepoLens — AI-annotated dependency-graph explorer](arcs/repolens) | work | 🛠️ in progress |  |
 <!-- ARCS:END -->

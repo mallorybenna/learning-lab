@@ -1,6 +1,222 @@
 {
   "graph": {
-    "nodes": {},
-    "dependencies": {}
+    "nodes": {
+      "store-web": {
+        "name": "store-web",
+        "type": "app",
+        "data": { "root": "apps/store-web", "tags": ["scope:store", "type:app"] }
+      },
+      "admin-portal": {
+        "name": "admin-portal",
+        "type": "app",
+        "data": { "root": "apps/admin-portal", "tags": ["scope:admin", "type:app"] }
+      },
+      "partner-api": {
+        "name": "partner-api",
+        "type": "app",
+        "data": { "root": "apps/partner-api", "tags": ["scope:api", "type:app"] }
+      },
+      "store-web-e2e": {
+        "name": "store-web-e2e",
+        "type": "e2e",
+        "data": { "root": "apps/store-web-e2e", "tags": ["scope:store", "type:e2e"] }
+      },
+      "admin-portal-e2e": {
+        "name": "admin-portal-e2e",
+        "type": "e2e",
+        "data": { "root": "apps/admin-portal-e2e", "tags": ["scope:admin", "type:e2e"] }
+      },
+      "feature-checkout": {
+        "name": "feature-checkout",
+        "type": "lib",
+        "data": { "root": "libs/store/feature-checkout", "tags": ["scope:store", "type:feature"] }
+      },
+      "feature-catalog": {
+        "name": "feature-catalog",
+        "type": "lib",
+        "data": { "root": "libs/store/feature-catalog", "tags": ["scope:store", "type:feature"] }
+      },
+      "feature-cart": {
+        "name": "feature-cart",
+        "type": "lib",
+        "data": { "root": "libs/store/feature-cart", "tags": ["scope:store", "type:feature"] }
+      },
+      "feature-search": {
+        "name": "feature-search",
+        "type": "lib",
+        "data": { "root": "libs/store/feature-search", "tags": ["scope:store", "type:feature"] }
+      },
+      "feature-account": {
+        "name": "feature-account",
+        "type": "lib",
+        "data": { "root": "libs/store/feature-account", "tags": ["scope:store", "type:feature"] }
+      },
+      "feature-dashboard": {
+        "name": "feature-dashboard",
+        "type": "lib",
+        "data": { "root": "libs/admin/feature-dashboard", "tags": ["scope:admin", "type:feature"] }
+      },
+      "feature-reporting": {
+        "name": "feature-reporting",
+        "type": "lib",
+        "data": { "root": "libs/admin/feature-reporting", "tags": ["scope:admin", "type:feature"] }
+      },
+      "data-access-orders": {
+        "name": "data-access-orders",
+        "type": "lib",
+        "data": { "root": "libs/shared/data-access-orders", "tags": ["scope:shared", "type:data-access"] }
+      },
+      "data-access-products": {
+        "name": "data-access-products",
+        "type": "lib",
+        "data": { "root": "libs/shared/data-access-products", "tags": ["scope:shared", "type:data-access"] }
+      },
+      "data-access-users": {
+        "name": "data-access-users",
+        "type": "lib",
+        "data": { "root": "libs/shared/data-access-users", "tags": ["scope:shared", "type:data-access"] }
+      },
+      "api-client": {
+        "name": "api-client",
+        "type": "lib",
+        "data": { "root": "libs/shared/api-client", "tags": ["scope:shared", "type:util"] }
+      },
+      "auth": {
+        "name": "auth",
+        "type": "lib",
+        "data": { "root": "libs/shared/auth", "tags": ["scope:shared", "type:util"] }
+      },
+      "ui-components": {
+        "name": "ui-components",
+        "type": "lib",
+        "data": { "root": "libs/shared/ui-components", "tags": ["scope:shared", "type:ui"] }
+      },
+      "ui-theme": {
+        "name": "ui-theme",
+        "type": "lib",
+        "data": { "root": "libs/shared/ui-theme", "tags": ["scope:shared", "type:ui"] }
+      },
+      "shared-utils": {
+        "name": "shared-utils",
+        "type": "lib",
+        "data": { "root": "libs/shared/shared-utils", "tags": ["scope:shared", "type:util"] }
+      },
+      "shared-types": {
+        "name": "shared-types",
+        "type": "lib",
+        "data": { "root": "libs/shared/shared-types", "tags": ["scope:shared", "type:util"] }
+      },
+      "logging": {
+        "name": "logging",
+        "type": "lib",
+        "data": { "root": "libs/shared/logging", "tags": ["scope:shared", "type:util"] }
+      }
+    },
+    "dependencies": {
+      "store-web": [
+        { "source": "store-web", "target": "feature-checkout", "type": "static" },
+        { "source": "store-web", "target": "feature-catalog", "type": "static" },
+        { "source": "store-web", "target": "feature-cart", "type": "static" },
+        { "source": "store-web", "target": "feature-account", "type": "static" },
+        { "source": "store-web", "target": "feature-search", "type": "dynamic" },
+        { "source": "store-web", "target": "auth", "type": "static" },
+        { "source": "store-web", "target": "ui-theme", "type": "static" }
+      ],
+      "admin-portal": [
+        { "source": "admin-portal", "target": "feature-dashboard", "type": "static" },
+        { "source": "admin-portal", "target": "feature-reporting", "type": "static" },
+        { "source": "admin-portal", "target": "auth", "type": "static" },
+        { "source": "admin-portal", "target": "ui-theme", "type": "static" }
+      ],
+      "partner-api": [
+        { "source": "partner-api", "target": "data-access-orders", "type": "static" },
+        { "source": "partner-api", "target": "data-access-products", "type": "static" },
+        { "source": "partner-api", "target": "auth", "type": "static" },
+        { "source": "partner-api", "target": "logging", "type": "static" }
+      ],
+      "store-web-e2e": [
+        { "source": "store-web-e2e", "target": "store-web", "type": "implicit" }
+      ],
+      "admin-portal-e2e": [
+        { "source": "admin-portal-e2e", "target": "admin-portal", "type": "implicit" }
+      ],
+      "feature-checkout": [
+        { "source": "feature-checkout", "target": "feature-cart", "type": "static" },
+        { "source": "feature-checkout", "target": "data-access-orders", "type": "static" },
+        { "source": "feature-checkout", "target": "ui-components", "type": "static" },
+        { "source": "feature-checkout", "target": "shared-utils", "type": "static" },
+        { "source": "feature-checkout", "target": "shared-types", "type": "static" }
+      ],
+      "feature-catalog": [
+        { "source": "feature-catalog", "target": "feature-search", "type": "static" },
+        { "source": "feature-catalog", "target": "data-access-products", "type": "static" },
+        { "source": "feature-catalog", "target": "ui-components", "type": "static" },
+        { "source": "feature-catalog", "target": "shared-utils", "type": "static" }
+      ],
+      "feature-cart": [
+        { "source": "feature-cart", "target": "feature-checkout", "type": "static" },
+        { "source": "feature-cart", "target": "data-access-products", "type": "static" },
+        { "source": "feature-cart", "target": "ui-components", "type": "static" },
+        { "source": "feature-cart", "target": "shared-utils", "type": "static" }
+      ],
+      "feature-search": [
+        { "source": "feature-search", "target": "feature-catalog", "type": "static" },
+        { "source": "feature-search", "target": "data-access-products", "type": "static" },
+        { "source": "feature-search", "target": "shared-utils", "type": "static" }
+      ],
+      "feature-account": [
+        { "source": "feature-account", "target": "data-access-users", "type": "static" },
+        { "source": "feature-account", "target": "auth", "type": "static" },
+        { "source": "feature-account", "target": "ui-components", "type": "static" },
+        { "source": "feature-account", "target": "shared-utils", "type": "static" }
+      ],
+      "feature-dashboard": [
+        { "source": "feature-dashboard", "target": "data-access-orders", "type": "static" },
+        { "source": "feature-dashboard", "target": "data-access-users", "type": "static" },
+        { "source": "feature-dashboard", "target": "ui-components", "type": "static" },
+        { "source": "feature-dashboard", "target": "shared-utils", "type": "static" }
+      ],
+      "feature-reporting": [
+        { "source": "feature-reporting", "target": "data-access-orders", "type": "static" },
+        { "source": "feature-reporting", "target": "ui-components", "type": "static" },
+        { "source": "feature-reporting", "target": "shared-utils", "type": "static" },
+        { "source": "feature-reporting", "target": "logging", "type": "static" }
+      ],
+      "data-access-orders": [
+        { "source": "data-access-orders", "target": "api-client", "type": "static" },
+        { "source": "data-access-orders", "target": "shared-types", "type": "static" },
+        { "source": "data-access-orders", "target": "shared-utils", "type": "static" }
+      ],
+      "data-access-products": [
+        { "source": "data-access-products", "target": "api-client", "type": "static" },
+        { "source": "data-access-products", "target": "shared-types", "type": "static" },
+        { "source": "data-access-products", "target": "shared-utils", "type": "static" }
+      ],
+      "data-access-users": [
+        { "source": "data-access-users", "target": "api-client", "type": "static" },
+        { "source": "data-access-users", "target": "shared-types", "type": "static" },
+        { "source": "data-access-users", "target": "shared-utils", "type": "static" }
+      ],
+      "api-client": [
+        { "source": "api-client", "target": "shared-utils", "type": "static" },
+        { "source": "api-client", "target": "logging", "type": "static" }
+      ],
+      "auth": [
+        { "source": "auth", "target": "api-client", "type": "static" },
+        { "source": "auth", "target": "shared-utils", "type": "static" }
+      ],
+      "ui-components": [
+        { "source": "ui-components", "target": "ui-theme", "type": "static" },
+        { "source": "ui-components", "target": "shared-utils", "type": "static" }
+      ],
+      "ui-theme": [],
+      "shared-utils": [
+        { "source": "shared-utils", "target": "shared-types", "type": "static" }
+      ],
+      "shared-types": [],
+      "logging": [
+        { "source": "logging", "target": "shared-utils", "type": "static" }
+      ]
+    }
   }
 }
